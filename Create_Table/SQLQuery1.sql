@@ -1,0 +1,31 @@
+
+
+
+CREATE TABLE Employee_Nis1030(
+EmployeeID VARCHAR(30) PRIMARY KEY,
+EmpName VARCHAR(30),
+Phone INT,
+Email VARCHAR(30)
+);
+
+CREATE TABLE Manufacturer_Nis1030(
+	MfName VARCHAR(30) PRIMARY KEY,
+	City VARCHAR(30),
+	State VARCHAR(30)
+);
+
+
+CREATE TABLE Computer_Nis1030(
+SerialNumber VARCHAR(30) PRIMARY KEY,
+MfName VARCHAR(30)
+CONSTRAINT Fk_Mfname_Computer
+FOREIGN KEY(MfName)
+REFERENCES Manufacturer_Nis1030(MfName),
+Model VARCHAR(30),
+Weight INT ,
+EmployeeID VARCHAR(30)
+CONSTRAINT Fk_Empid_Computer
+FOREIGN KEY(EmployeeID)
+REFERENCES Employee_Nis1030(EmployeeID)
+);
+
